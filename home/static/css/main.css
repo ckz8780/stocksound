@@ -5,16 +5,17 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	margin-top: 56px;
+	margin-bottom: 60px;
 }
 
 /*--------------------------------------------- Nav Styling*/
 
 nav {
-	background-color: #0d3450;
+	background-color: #2a3f54;
 }
 
 .fixed-top {
-	box-shadow: 0px 0px 6px #0d3450;
+	box-shadow: 0px 0px 6px #2a3f54;
 }
 
 
@@ -33,13 +34,17 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-color: #0d3450;
+	background-color: #2a3f54;
 	color: #fff;
-	box-shadow: 0px 0px 6px #0d3450;
+	box-shadow: 0px 0px 6px #2a3f54;
 }
 
 footer .footer-col {
 	padding: 10px 0;
 	margin: auto;
 	max-height: 76px;
+}
+
+.text-success {
+	color: #26b99a !important;
 }

@@ -1,13 +1,50 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 <title>Home</title>
 {% endblock %}
 
 {% block core %}
+<a name="#top"></a>
 <div class="row">
-	<div class="col">
-		<h1 class="display-1">Home</h1>
-	</div>
+  <div class="col">
+    <h1 class="display-3 font-weight-bold">StockSound</h1>
+    <form method="POST" action="{% url 'home' %}">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Enter a Ticker:</span>
+        </div>
+        <input type="text" class="form-control" name="ticker">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-secondary" type="button">Get Data</button>
+        </div>
+      </div>
+    </form>
+    {% if prices %}
+      <button class="btn btn-success btn-block" id="play">Play!</button>
+      <table class="table table-sm mt-2">
+        <thead>
+          <th>Date</th>
+          <th class="text-right">Price</th>
+        </thead>
+        <tbody>
+          {% for price in prices %}
+            <tr id="{{ price.date }}">
+              <td>{{ price.date }}</td>
+              <td class="text-right">${{ price.close }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="#top" class="btn btn-primary btn-block mb-2">Back to Top</a>
+    {% endif %}
+  </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+  {{ prices|json_script:"price_data" }}
+  <script src="{% static 'js/stocksound.js' %}"></script>
 {% endblock %}
