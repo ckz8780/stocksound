@@ -20,15 +20,15 @@ A minimalist mobile-responsive template for starting a Django/Bootstrap project,
 
 ### Config:
 
-If you are ok with using `my_project` and `my_app` for your project and app name respectively, you don't have to do anything at all. Just start the server and have fun! If you want to change your project/app names:
+If you are ok with using `my_project` and `home` for your project and app name respectively, you don't have to do anything at all. Just start the server and have fun! If you want to change your project/app names:
 
 1. **my_project/settings.py**: Update `SECRET_KEY`, `INSTALLED_APPS`, `ROOT_URLCONF`, and `WSGI_APPLICATION` (see comments in file)
 2. **my_project/wsgi.py**: Update project settings (see comments in file)
 3. **my_project/urls.py**: Update app urls include (see comments in file)
 4. **src/manage.py**: Update project settings (see comments in file)
-5. **my_app/apps.py**: Update app config (see comments in file)
+5. **home/apps.py**: Update app config (see comments in file)
 6. *Completely Optional (for perfectionists): change comments (urls.py, manage.py, etc) to match your new project/app name*
-7. Rename my_project and my_app folders to your new project and app names (these **must** match the updates you made above!)
+7. Rename my_project and home folders to your new project and app names (these **must** match the updates you made above!)
 8. Delete src/.git folder and re-initialize your own: `git init`
 
 ### Start the server!
