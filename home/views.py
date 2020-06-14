@@ -7,6 +7,7 @@ import json
 
 def home(request):
   prices = None
+  ticker = None
 
   if request.method == 'POST':
     quandl.ApiConfig.api_key = os.getenv('STOCKSOUND_API_KEY', None)
@@ -21,7 +22,10 @@ def home(request):
 
     prices = json.loads(prices)[::-1]
 
-  context = {'prices': prices}
+  context = {
+    'prices': prices,
+    'ticker': ticker,
+  }
   template = 'home.html'
   return render(request, template, context)
 

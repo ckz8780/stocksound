@@ -16,7 +16,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Enter a Ticker:</span>
         </div>
-        <input type="text" class="form-control" name="ticker">
+        <input type="text" class="form-control" name="ticker" required>
         <div class="input-group-append">
           <button type="submit" class="btn btn-secondary" type="button">Get Data</button>
         </div>
@@ -24,12 +24,21 @@
     </form>
     {% if prices %}
       <button class="btn btn-success btn-block" id="play">Play!</button>
-      <table class="table table-sm mt-2">
+      <h2 class="text-center mt-2">{{ ticker }} Price Data</h2>
+      <table class="table table-sm">
         <thead>
           <th>Date</th>
           <th class="text-right">Price</th>
         </thead>
         <tbody>
+          <tr>
+            <td class="text-warning bg-dark">
+              <strong><span id="current-date-box">-</span></strong>
+            </td>
+            <td class="text-warning bg-dark text-right">
+              <strong><span id="current-price-box">-</span></strong>
+            </td>
+          </tr>
           {% for price in prices %}
             <tr id="{{ price.date }}">
               <td>{{ price.date }}</td>

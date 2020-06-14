@@ -12,6 +12,10 @@ function playNote(frequency, duration, dateRow) {
 
   let row = document.getElementById(dateRow)
   row.style.color = 'red';
+  let currentDateBox = document.getElementById('current-date-box');
+  let currentPriceBox = document.getElementById('current-price-box');
+  currentDateBox.innerHTML = `${dateRow.split('T')[0]}`;
+  currentPriceBox.innerHTML = `$${(frequency - 100).toFixed(2)}`;
 
   setTimeout(
     function() {
@@ -35,7 +39,7 @@ let priceData = JSON.parse(
 );
 
 notes = priceData.map(function(el) {
-  return [el['close'], 4]
+  return [el['close']+100, 4]
 });
 
 dates = priceData.map(function(el) {
